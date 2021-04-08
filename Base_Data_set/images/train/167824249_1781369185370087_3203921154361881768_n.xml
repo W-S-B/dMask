@@ -1,0 +1,26 @@
+<annotation>
+	<folder>allimages</folder>
+	<filename>167824249_1781369185370087_3203921154361881768_n.jpg</filename>
+	<path>D:\Mask_Detection\RealTimeObjectDetection\Tensorflow\workspace\images\allimages\167824249_1781369185370087_3203921154361881768_n.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>443</width>
+		<height>960</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>WrongMask</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>110</xmin>
+			<ymin>383</ymin>
+			<xmax>351</xmax>
+			<ymax>554</ymax>
+		</bndbox>
+	</object>
+</annotation>
