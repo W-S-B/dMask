@@ -1,0 +1,36 @@
+html, body, .App{
+  height: 100vh;
+  margin: 0 0;
+  background-color: #f2f2f2;
+}
+
+.row{
+  display: grid;
+  padding: 25px;
+  grid-template-columns: 20% 70%;
+  grid-template-rows: 100%;
+  grid-column-gap: 25px;
+}
+
+.App{
+  display: grid;
+  grid-template-rows: 70% 25%;
+}
+
+.statistics, .History{
+  border-radius: 15px;
+  box-shadow:  5px 5px 5px rgba(0, 0, 0, 0.178);
+  text-align: left;
+  background-color: #fff !important;
+  padding: 15px;
+}
+
+.statistics{
+  margin-bottom: 25px;
+}
+
+.sidebar{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block body %}
+    <div class="content-section">
+        <form method="POST" action="">
+            <div>
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ category }}">
+                            {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+        </form>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8  offset-lg-2">
+                <h3 class="mt-5">Live Streaming</h3>
+                <img src="{{ url_for('video_feed') }}" width="100%">
+            </div>
+        </div>
+    </div>
+    <div>
+        <p>{{ status.masks_count }}</p>
+        <p>{{ status.passed_people }}</p>
+        <p>{{ status.passed_green }}</p>
+        <p>{{ status.passed_yellow }}</p>
+        <p>{{ status.passed_red }}</p>
+        {% for msg in messages %}
+            <p>{{ msg }}</p>
+        {% endfor %}
+    </div>
+{% endblock body %}
