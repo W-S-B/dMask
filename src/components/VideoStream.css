@@ -1,0 +1,12 @@
+.video{
+    width: 75%;
+    
+}
+
+img{
+    border-radius: 15px;
+    aspect-ratio: 16 / 9;
+    height: 1080px;
+    width: 10080px;
+    box-shadow:  5px 5px 5px rgba(0, 0, 0, 0.178);
+}
