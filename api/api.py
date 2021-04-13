@@ -1,5 +1,5 @@
 from flask import Flask, render_template, Response
-from camera import VideoCamera
+from CheckFlow import get_frame
 import json
 
 app = Flask(__name__)
@@ -10,9 +10,9 @@ def api():
         'video': 'https://www.6connex.com/wp-content/uploads/virtual_events_and_environments_03.jpg'
     }
 
-def gen(camera):
+def gen():
     while True:
-        frame = camera.get_frame()
+        frame = get_frame()
         yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
 
@@ -25,4 +25,5 @@ def history():
 
 @app.route('/video_feed')
 def video_feed():
-    return Response(gen(VideoCamera()), mimetype='multipart/x-mixed-replace; boundary=frame')
+
+    return Response(gen(), mimetype='multipart/x-mixed-replace; boundary=frame')
