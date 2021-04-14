@@ -12,7 +12,7 @@ function VideoStream() {
 
   return (
     <div className="video">
-      <img src='http://192.168.0.148:5000/video_feed'></img>
+      <img src='http://192.168.88.168:5000/video_feed'></img>
     </div>
   );
 }
