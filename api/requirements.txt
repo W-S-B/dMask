@@ -1,24 +1,6 @@
-bcrypt==3.2.0
-cffi==1.14.5
-click==7.1.2
-Flask==1.1.2
-Flask-Bcrypt==0.7.1
-Flask-Login==0.5.0
-Flask-SQLAlchemy==2.5.1
-Flask-WTF==0.14.3
-greenlet==1.0.0
-itsdangerous==1.1.0
-Jinja2==2.11.3
-MarkupSafe==1.1.1
-mysql-connector-python==8.0.23
-mysqlclient==2.0.3
-numpy==1.20.2
-opencv-python==4.5.1.48
-protobuf==3.15.7
-pycparser==2.20
-PyMySQL==1.0.2
-python-dotenv==0.17.0
-six==1.15.0
-SQLAlchemy==1.4.6
-Werkzeug==1.0.1
-WTForms==2.3.3
+pip3 install --upgrade pip
+
+pip3 install --upgrade tensorflow
+pip3 install Flask
+pip3 install tensorflow-object-detection-api
+pip3 install opencv-python
