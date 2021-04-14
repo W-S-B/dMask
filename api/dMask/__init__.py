@@ -8,7 +8,7 @@ app = Flask(__name__)
 bcrypt = Bcrypt(app)
 db = SQLAlchemy(app)
 app.config["SECRET_KEY"] = "77a647040d624119619b0a9c46859930"
-app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///database.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root@localhost:3306/database'
 
 login_manager = LoginManager(app)
 login_manager.login_view = "login"
