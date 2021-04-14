@@ -50,6 +50,9 @@ label_map = label_map_util.load_labelmap(PATH_TO_LABELS)
 categories = label_map_util.convert_label_map_to_categories(label_map, max_num_classes=NUM_CLASSES, use_display_name=True)
 category_index = label_map_util.create_category_index(categories)
 
+def matches(List):
+    return max(set(List), key=List.count)
+
 app = Flask(__name__)
 
 @app.route('/api', methods=['GET'])
@@ -59,6 +62,8 @@ def api():
     }
 
 def gen():
+    entries = []
+    begin_time = 81
     with detection_graph.as_default():
         with tf.Session(graph=detection_graph) as sess:
             while True:
@@ -72,6 +77,35 @@ def gen():
                 (boxes, scores, classes, num_detections) = sess.run(
                     [boxes, scores, classes, num_detections],
                     feed_dict={image_tensor: image_np_expanded})
+
+                if begin_time < 10:    
+                    for i in range(min(1, np.squeeze(boxes).shape[0])):
+                        if np.squeeze(classes)[i] in category_index.keys():
+                            class_name = category_index[np.squeeze(classes)[i]]['name']
+                        if np.squeeze(scores)[i] > 0.7:    
+                            if class_name:
+                                display_str = str(class_name)
+                                entries.append(display_str)
+                    begin_time += 1
+                elif begin_time == 10:
+                    if matches(entries) == "NoMask":
+                        print("Put your Mask ON")
+                    elif matches(entries) == "WrongMask":
+                        print("Fix Your Mask with the instructions below")
+                    elif matches(entries) == "Mask":
+                        print("You may pass")
+                    begin_time += 1
+                else:
+                    for i in range(min(1, np.squeeze(boxes).shape[0])):
+                        if np.squeeze(classes)[i] in category_index.keys():
+                            class_name = category_index[np.squeeze(classes)[i]]['name']
+                        if np.squeeze(scores)[i] > 0.7:    
+                            if class_name:
+                                begin_time = 0
+                                del entries[:]
+                                display_str = str(class_name)
+                                entries.append(display_str)
+
                 vis_util.visualize_boxes_and_labels_on_image_array(
                     image_np,
                     np.squeeze(boxes),
@@ -80,7 +114,8 @@ def gen():
                     category_index,
                     use_normalized_coordinates=True,
                     line_thickness=6,
-                    min_score_thresh=.7)
+                    min_score_thresh=.7,
+                    max_boxes_to_draw=1)
                 ret, jpeg = cv2.imencode('.jpg', cv2.resize(image_np, (640, 480)))
                 frame = jpeg.tobytes()
                 yield (b'--frame\r\n'
