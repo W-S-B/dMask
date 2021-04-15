@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import date
 from dMask import db, login_manager
 from flask_login import UserMixin
 
@@ -20,7 +20,7 @@ class User(db.Model, UserMixin):
 
 class Status(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
-    date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    date = db.Column(db.Date, nullable=False, default=date.today())
     masks_count = db.Column(db.Integer, nullable=False)
     passed_people = db.Column(db.Integer, nullable=False)  # Total
     passed_green = db.Column(db.Integer, nullable=False)  # People who wear а mask correctly
