@@ -2,6 +2,7 @@ from flask import Flask, render_template, Response
 import json
 
 from datetime import datetime
+from time import sleep
 from dMask import db, bcrypt
 from dMask.models import User, Status
 
@@ -100,13 +101,27 @@ def gen():
                         if matches(entries) == "NoMask":
                             print("Put your Mask ON")
                             NoMask += 1
+                            img = cv2.imread('/images/NoMask.jpg')
+                            frame = img.tobytes()
+                            yield (b'--frame\r\n'
+                                   b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
                         elif matches(entries) == "WrongMask":
                             print("Fix Your Mask with the instructions below")
                             WrongMask += 1
+                            img = cv2.imread('/images/WrongMask.jpg')
+                            frame = img.tobytes()
+                            yield (b'--frame\r\n'
+                                   b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
                         elif matches(entries) == "Mask":
                             print("You may pass")
                             Mask += 1
+                            img = cv2.imread('/images/Mask.jpg')
+                            frame = img.tobytes()
+                            yield (b'--frame\r\n'
+                                   b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
                         begin_time += 1
+                        sleep(3)
+                        continue
                     else:
                         for i in range(min(1, np.squeeze(boxes).shape[0])):
                             if np.squeeze(classes)[i] in category_index.keys():
@@ -136,6 +151,11 @@ def gen():
                     status = Status(masks_count=10, passed_people=Mask+WrongMask+NoMask, passed_green=Mask, passed_yellow=WrongMask, passed_red=NoMask)
                     db.session.add(status)
                     db.session.commit()
+                else :
+                    img = cv2.imshow('/images/Late.jpg')
+                    frame = img.tobytes()
+                    yield (b'--frame\r\n'
+                           b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
 
 
 @app.route("/history")
