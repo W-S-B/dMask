@@ -69,7 +69,7 @@ def api():
 def gen():
     entries = []
     begin_time = 81
-    Mask = 0, NoMask = 0, WrongMask = 0
+    Mask = NoMask = WrongMask = 0
 
     with detection_graph.as_default():
         with tf.Session(graph=detection_graph) as sess:
