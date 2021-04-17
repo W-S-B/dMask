@@ -101,29 +101,34 @@ def gen():
                         if matches(entries) == "NoMask":
                             print("Put your Mask ON")
                             NoMask += 1
-                            img = cv2.imread('images/NoMask.jpg')
-                            ret, jpeg = cv2.imencode('.jpg', img)
-                            frame = jpeg.tobytes()
-                            yield (b'--frame\r\n'
-                                   b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
+                            for x in range(10):
+                                img = cv2.imread('images/NoMask.jpg')
+                                ret, jpeg = cv2.imencode('.jpg', img)
+                                frame = jpeg.tobytes()
+                                yield (b'--frame\r\n'
+                                       b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
+                                
                         elif matches(entries) == "WrongMask":
                             print("Fix Your Mask with the instructions below")
                             WrongMask += 1
-                            img = cv2.imread('images/WrongMask.jpg')
-                            ret, jpeg = cv2.imencode('.jpg', img)
-                            frame = jpeg.tobytes()
-                            yield (b'--frame\r\n'
-                                   b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
+                            for x in range(10):
+                                img = cv2.imread('images/WrongMask.jpg')
+                                ret, jpeg = cv2.imencode('.jpg', img)
+                                frame = jpeg.tobytes()
+                                yield (b'--frame\r\n'
+                                       b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
                         elif matches(entries) == "Mask":
-                            print("You may pass")
+                            print("You may pass")  
                             Mask += 1
-                            img = cv2.imread('images/Mask.jpg')
-                            ret, jpeg = cv2.imencode('.jpg', img)
-                            frame = jpeg.tobytes()
-                            yield (b'--frame\r\n'
-                                   b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
+                            for x in range(10):
+                                img = cv2.imread('images/Mask.jpg')
+                                ret, jpeg = cv2.imencode('.jpg', img)
+                                frame = jpeg.tobytes()
+                                yield (b'--frame\r\n'
+                                       b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
                         begin_time += 1
-                        sleep(3)
+                        
+                            
                         continue
                     else:
                         for i in range(min(1, np.squeeze(boxes).shape[0])):
