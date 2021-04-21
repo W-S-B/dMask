@@ -3,8 +3,8 @@ import json
 
 from datetime import datetime
 from time import sleep
-#from dMask import db, bcrypt
-#from dMask.models import User, Status
+from dMask import db, bcrypt
+from dMask.models import User, Status
 
 import numpy as np
 import os
@@ -155,10 +155,10 @@ def gen():
                     frame = jpeg.tobytes()
                     yield (b'--frame\r\n'
                            b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
-                #elif t.hour == 0 and t.minute == 0 and t.second == 0:
-                    #status = Status(masks_count=10, passed_people=Mask+WrongMask+NoMask, passed_green=Mask, passed_yellow=WrongMask, passed_red=NoMask)
-                    #db.session.add(status)
-                    #db.session.commit()
+                elif t.hour == 0 and t.minute == 0 and t.second == 0:
+                    status = Status(masks_count=10, passed_people=Mask+WrongMask+NoMask, passed_green=Mask, passed_yellow=WrongMask, passed_red=NoMask)
+                    db.session.add(status)
+                    db.session.commit()
                 else :
                     img = cv2.imread('images/Late.jpg')
                     ret, jpeg = cv2.imencode('.jpg', img)
