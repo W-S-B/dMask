@@ -4,9 +4,7 @@
 }
 
 img{
-    border-radius: 15px;
     aspect-ratio: 16 / 9;
-    height: 480px;
-    width: 640px;
+    height: 100vh;
     box-shadow:  5px 5px 5px rgba(0, 0, 0, 0.178);
 }

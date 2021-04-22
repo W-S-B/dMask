@@ -14,7 +14,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "start-flask-api": "cd api && dmask-api/bin/flask run --host=0.0.0.0",
+    "start-flask-api": "cd api && flask run --host=0.0.0.0",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
