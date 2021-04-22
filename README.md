@@ -1,70 +1,68 @@
-# Getting Started with Create React App
+# dMask
+*Снимка*
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Описание:
 
-## Available Scripts
+## Видео, демо и снимки:
+Линк към Google Drive -> [Натиснете тук, за да отидете към папката]()
 
-In the project directory, you can run:
+## Какво представлява проекта?
+снимково демо
 
-### `yarn start`
+## Как да си изтегля и използвам проекта?
+### Изтегляне:
+Изтеглете последната версия на проекта (може да видите последната версия отдясно)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Предварителни настройки:
+* Инсталирайте [Python](https://www.python.org/downloads/)
+* Инсталирайте [NodeJS](https://nodejs.org/en/download/)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+За да можете да ползвате локално проекта, трябва да знаете с каква видео карта разполагате:
+#### За NVIDIA:
+* Инсталирайте [CUDA11](https://developer.nvidia.com/cuda-11.0-download-archive)
+#### За AMD:
+* Инсталирайте [ROCm](https://rocmdocs.amd.com/en/latest/)
+* ```pip install --user tensorflow-rocm```
 
-### `yarn test`
+### Как да си пуснете проекта?
+* Отворете изтегкената папка (след като сте я разархивирали)
+* Отворете и терминал (2 пъти)
+* ```cd C:\Път\До\Папката``` - в и двата
+#### В първи терминал
+* ```cd api```
+* ```pip install VirtualEnv --user```
+* ```pip install VirtualEnvWrapper-win --user```
+* ```python -m virtualenv dmask-api```
+* ```dmask-api/Scripts/activate```
+* ```pip install -r requirements.txt```
+* ```$env:FLASK_APP = "api.py"```
+#### Във втори терминал
+* ```npm ci```
+* ```npm start```
+#### В първи терминал
+* ```npm run start-flask-api```
+#### Във втори терминал
+* ```npm start```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Използвани технологии:
 
-### `yarn build`
+#### Web App
+* [HTML](https://html.com/)
+* [CSS](https://www.w3.org/Style/CSS/Overview.en.html)
+* [JavaScript](https://www.javascript.com/)
+* [ReactJS](https://reactjs.org/)
+* [Flask](https://flask.palletsprojects.com/)
+* [SQLite](https://www.sqlite.org/index.html)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### AI
+* [Python](https://www.python.org/)
+* [OpenCV](https://opencv.org/)
+* [Tensorflow](https://www.tensorflow.org/)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Информация за авторите на проекта:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* [Алеко Георгиев](https://github.com/AlekoGeorgiev) | Back-end, Local Server
+* [Калоян Дойчинов](https://kaloyan.tech) | WebApp - Front-end, API, Run Scripts (Linux)
+* [Константин Щерев](https://github.com/KokoShterev) | AI
+* [Кристиян Богданов](https://github.com/KristiyanBogdanov) | Back-end
+* [Мартин Божилов](https://github.com/TechXTT) | AI
