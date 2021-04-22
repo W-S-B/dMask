@@ -27,7 +27,7 @@ import cv2
 import tensorflow.compat.v1 as tf
 tf.disable_v2_behavior()
 
-cap = cv2.VideoCapture(1)  
+cap = cv2.VideoCapture(0) # Change to -1 on Linux
 
 cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1920)
 
